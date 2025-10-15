@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, Phone, Mail, MessageSquare, Train } from 'lucide-react';
+import { ArrowRight, Phone, Mail, MessageSquare, Train, CheckCircle, AlertCircle } from 'lucide-react';
 
 export default function TrainReservationBanner() {
   const [currentImage, setCurrentImage] = useState(0);
@@ -9,11 +9,14 @@ export default function TrainReservationBanner() {
     email: '',
     message: ''
   });
+  const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
 
   const backgroundImages = [
-    '/images/train3.jpg',
-     '/images/train2.jpeg',
-    '/images/train1.jpeg'
+    'https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=1920',
+    'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=1920',
+    'https://images.unsplash.com/photo-1566024287286-457247b70310?w=1920'
   ];
 
   useEffect(() => {
@@ -24,16 +27,80 @@ export default function TrainReservationBanner() {
     return () => clearInterval(interval);
   }, []);
 
-  const handleSubmit = () => {
-    console.log('Form submitted:', formData);
-    alert('Request submitted successfully!');
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+    
+    if (errors[name]) {
+      setErrors(prev => ({
+        ...prev,
+        [name]: ''
+      }));
+    }
+    
+    if (submitStatus) {
+      setSubmitStatus(null);
+    }
   };
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+  const validateForm = () => {
+    const newErrors = {};
+
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required';
+    } else if (formData.name.trim().length < 2) {
+      newErrors.name = 'Name must be at least 2 characters';
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email';
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = 'Message is required';
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = 'Message must be at least 10 characters';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = async () => {
+    if (!validateForm()) {
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
+      console.log('Form submitted:', formData);
+      
+      setSubmitStatus('success');
+      setFormData({
+        name: '',
+        email: '',
+        message: ''
+      });
+
+      setTimeout(() => {
+        setSubmitStatus(null);
+      }, 5000);
+      
+    } catch (error) {
+      console.error('Submission error:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -125,87 +192,126 @@ export default function TrainReservationBanner() {
 
           {/* Right Section - Form */}
           <div className="w-full max-w-md mx-auto">
-            <div className="bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl p-8 transform hover:scale-[1.02] transition-transform duration-300">
-              {/* Form Header */}
-              <div className="text-center mb-8">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-2xl mb-4 shadow-lg">
-                  <Phone className="w-8 h-8 text-white" />
+            {/* Success Message */}
+            {submitStatus === 'success' && (
+              <div className="mb-4 bg-green-500/95 backdrop-blur-sm rounded-2xl p-4 flex items-start gap-3 shadow-xl animate-in slide-in-from-top">
+                <CheckCircle className="w-6 h-6 text-white flex-shrink-0 mt-0.5" />
+                <div className="text-white">
+                  <p className="font-bold">Request Submitted!</p>
+                  <p className="text-sm text-green-50">We'll call you back within 1 hour</p>
                 </div>
-                <h3 className="text-3xl font-bold text-gray-800 mb-2">
+              </div>
+            )}
+
+            {/* Error Message */}
+            {submitStatus === 'error' && (
+              <div className="mb-4 bg-red-500/95 backdrop-blur-sm rounded-2xl p-4 flex items-start gap-3 shadow-xl">
+                <AlertCircle className="w-6 h-6 text-white flex-shrink-0 mt-0.5" />
+                <div className="text-white">
+                  <p className="font-bold">Oops! Something went wrong</p>
+                  <p className="text-sm text-red-50">Please try again</p>
+                </div>
+              </div>
+            )}
+
+            <div className="bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl p-6 transform hover:scale-[1.02] transition-transform duration-300">
+              {/* Form Header */}
+              <div className="text-center mb-6">
+                <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-2xl mb-3 shadow-lg">
+                  <Phone className="w-7 h-7 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-800 mb-1">
                   Request A Call Back
                 </h3>
-                <p className="text-gray-600">We'll get back to you shortly</p>
+                <p className="text-gray-600 text-sm">We'll get back to you shortly</p>
               </div>
 
               {/* Form Fields */}
-              <div className="space-y-5">
+              <div className="space-y-4">
                 {/* Name Field */}
-                <div className="group">
-                  <label className="block text-sm font-semibold text-gray-700 mb-2 ml-1">
-                    Name
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-1.5 ml-1">
+                    Name *
                   </label>
-                  <div className="relative">
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="Enter your name"
-                      className="w-full px-4 py-3.5 bg-gray-50 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-100 transition-all outline-none text-gray-800 placeholder-gray-400"
-                    />
-                  </div>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Enter your name"
+                    className={`w-full px-4 py-3 bg-gray-50 border-2 rounded-xl focus:bg-white focus:ring-4 focus:ring-blue-100 transition-all outline-none text-gray-800 placeholder-gray-400 ${
+                      errors.name ? 'border-red-300 focus:border-red-500' : 'border-gray-200 focus:border-blue-500'
+                    }`}
+                  />
+                  {errors.name && <p className="mt-1 text-sm text-red-600 ml-1">{errors.name}</p>}
                 </div>
 
                 {/* Email Field */}
-                <div className="group">
-                  <label className="block text-sm font-semibold text-gray-700 mb-2 ml-1">
-                    Email
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-1.5 ml-1">
+                    Email *
                   </label>
-                  <div className="relative">
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="Enter your email"
-                      className="w-full px-4 py-3.5 bg-gray-50 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-100 transition-all outline-none text-gray-800 placeholder-gray-400"
-                    />
-                  </div>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="Enter your email"
+                    className={`w-full px-4 py-3 bg-gray-50 border-2 rounded-xl focus:bg-white focus:ring-4 focus:ring-blue-100 transition-all outline-none text-gray-800 placeholder-gray-400 ${
+                      errors.email ? 'border-red-300 focus:border-red-500' : 'border-gray-200 focus:border-blue-500'
+                    }`}
+                  />
+                  {errors.email && <p className="mt-1 text-sm text-red-600 ml-1">{errors.email}</p>}
                 </div>
 
                 {/* Message Field */}
-                <div className="group">
-                  <label className="block text-sm font-semibold text-gray-700 mb-2 ml-1">
-                    Message
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-1.5 ml-1">
+                    Message *
                   </label>
                   <textarea
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Tell us about your travel plans..."
-                    rows={4}
-                    className="w-full px-4 py-3.5 bg-gray-50 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-100 transition-all outline-none resize-none text-gray-800 placeholder-gray-400"
+                    rows={3}
+                    className={`w-full px-4 py-3 bg-gray-50 border-2 rounded-xl focus:bg-white focus:ring-4 focus:ring-blue-100 transition-all outline-none resize-none text-gray-800 placeholder-gray-400 ${
+                      errors.message ? 'border-red-300 focus:border-red-500' : 'border-gray-200 focus:border-blue-500'
+                    }`}
                   />
+                  {errors.message && <p className="mt-1 text-sm text-red-600 ml-1">{errors.message}</p>}
                 </div>
 
                 {/* Submit Button */}
                 <button
                   type="button"
                   onClick={handleSubmit}
-                  className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center space-x-2 group"
+                  disabled={isSubmitting}
+                  className={`w-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold py-3.5 rounded-xl shadow-lg transform transition-all duration-200 flex items-center justify-center space-x-2 group ${
+                    isSubmitting 
+                      ? 'opacity-70 cursor-not-allowed' 
+                      : 'hover:from-blue-700 hover:to-cyan-600 hover:shadow-xl hover:-translate-y-0.5'
+                  }`}
                 >
-                  <span>Send Request</span>
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  {isSubmitting ? (
+                    <>
+                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                      <span>Sending...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Send Request</span>
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </>
+                  )}
                 </button>
               </div>
 
               {/* Trust Indicators */}
-              <div className="mt-6 pt-6 border-t border-gray-200">
-                <div className="flex items-center justify-center space-x-6 text-sm text-gray-600">
-                  <div className="flex items-center space-x-1">
-                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                    <span>Response within 1 hour</span>
-                  </div>
+              <div className="mt-5 pt-5 border-t border-gray-200">
+                <div className="flex items-center justify-center space-x-2 text-sm text-gray-600">
+                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                  <span className="font-medium">Response within 1 hour</span>
                 </div>
               </div>
             </div>

@@ -2,7 +2,7 @@
 import React from 'react';
 import { MapPin, ArrowRight } from 'lucide-react';
 
-export default function PopularRoutesSection() {
+export default function PopularRoutes() {
   const routes = [
     {
       name: 'Adirondack',
@@ -148,7 +148,7 @@ export default function PopularRoutesSection() {
               {/* Phone Button */}
               <div className="flex-shrink-0">
                 <a
-                  href="tel:8444844315"
+                  href="tel:+1(888) 508-7457"
                   className="group flex items-center gap-4 px-8 py-5 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold text-xl rounded-full hover:shadow-2xl hover:shadow-orange-500/50 transform hover:scale-105 transition-all duration-300"
                 >
                   <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
@@ -166,7 +166,7 @@ export default function PopularRoutesSection() {
                       />
                     </svg>
                   </div>
-                  <span className="whitespace-nowrap">(844) 844-3159</span>
+                  <span className="whitespace-nowrap">+1(888) 508-7457</span>
                 </a>
               </div>
             </div>

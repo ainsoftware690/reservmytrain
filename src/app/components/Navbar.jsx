@@ -55,11 +55,11 @@ export default function Navbar() {
             <div className="hidden lg:flex flex-col items-end gap-1">
 
               <a
-                href="tel:8448443159"
+                href="tel:+1(888) 508-7457"
                 className="flex items-center gap-2.5 bg-gradient-to-r from-blue-500 via-blue-600 to-blue-500 bg-size-200 bg-pos-0 hover:bg-pos-100 text-white px-7 py-3.5 rounded-full font-bold text-base shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-0.5"
               >
                 <Phone className="w-5 h-5" />
-                <span>(844) 844-3159</span>
+                <span>+1(888) 508-7457</span>
               </a>
             </div>
 

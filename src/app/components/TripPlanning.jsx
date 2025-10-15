@@ -2,7 +2,7 @@
 import React from 'react';
 import { Train, MapPin, Users, Award } from 'lucide-react';
 
-export default function TripPlanningSection() {
+export default function TripPlanning() {
   const features = [
     {
       title: 'Tailored Train Journeys',

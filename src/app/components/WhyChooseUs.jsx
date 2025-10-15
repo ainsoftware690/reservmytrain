@@ -2,7 +2,7 @@
 import React from 'react';
 import { Zap, ShieldCheck, Lock, Headphones } from 'lucide-react';
 
-export default function FeaturesSection() {
+export default function Features() {
   const features = [
     {
       icon: Zap,
