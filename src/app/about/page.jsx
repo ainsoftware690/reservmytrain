@@ -74,7 +74,7 @@ export default function AboutUs() {
           
           <div className="space-y-6 text-gray-700 leading-relaxed">
             <p className="text-lg">
-              We are a <span className="font-semibold text-blue-900">reputed and esteemed Travel Company</span> based in Amherst, New York USA for providing comfortable train & travel experiences all around the USA, Canada & Worldwide. We are rail vacation planner with affiliated partnership with multiple train consolidators.
+              We are a <span className="font-semibold text-blue-900">reputed and esteemed Travel Company</span> based in Hagerstown Maryland USA for providing comfortable train & travel experiences all around the USA, Canada & Worldwide. We are rail vacation planner with affiliated partnership with multiple train consolidators.
             </p>
             
             <p className="text-lg">

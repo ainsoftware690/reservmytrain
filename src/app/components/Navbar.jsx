@@ -59,7 +59,7 @@ export default function Navbar() {
                 className="flex items-center gap-2.5 bg-gradient-to-r from-blue-500 via-blue-600 to-blue-500 bg-size-200 bg-pos-0 hover:bg-pos-100 text-white px-7 py-3.5 rounded-full font-bold text-base shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-0.5"
               >
                 <Phone className="w-5 h-5" />
-                <span>+1(888) 508-7457</span>
+                <span>+1(888) 206-5827</span>
               </a>
             </div>
 
@@ -126,7 +126,7 @@ export default function Navbar() {
               className="flex items-center justify-center gap-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 py-4 rounded-xl font-bold text-base shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-[1.02]"
             >
               <Phone className="w-5 h-5" />
-              <span>(844) 844-3159</span>
+              <span>+1(888) 206-5827</span>
             </a>
           </div>
         </div>

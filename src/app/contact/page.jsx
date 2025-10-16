@@ -20,16 +20,16 @@ export default function ContactUs() {
     {
       icon: <Phone className="w-6 h-6" />,
       title: "Phone",
-      content: "+1(888) 508-7457",
+      content: "+1(888) 206-5827",
       subtext: "Mon-Fri 9am to 6pm EST",
-      link: "tel:+1(888) 508-7457"
+      link: "tel:+1(888) 206-5827"
     },
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email",
-      content: "support@ReservationKart.com",
+      content: "support@reservationkart.com",
       subtext: "We'll respond within 24hrs",
-      link: "mailto:support@ReservationKart.com"
+      link: "mailto:support@reservationrart.com"
     },
     {
       icon: <MapPin className="w-6 h-6" />,
@@ -204,7 +204,7 @@ export default function ContactUs() {
             <AlertCircle className="w-6 h-6 text-red-600 flex-shrink-0 mt-0.5" />
             <div>
               <h3 className="text-lg font-bold text-red-900 mb-1">Oops! Something went wrong</h3>
-              <p className="text-red-700">Please try again or contact us directly at support@ReservationKart.com</p>
+              <p className="text-red-700">Please try again or contact us directly at support@reservationkart.com</p>
             </div>
           </div>
         )}
@@ -438,7 +438,7 @@ export default function ContactUs() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-1">Do you offer phone support?</h4>
-                  <p className="text-gray-600 text-sm">Yes! Call us at +1(888) 508-7457 Mon-Fri, 9am-6pm EST.</p>
+                  <p className="text-gray-600 text-sm">Yes! Call us at +1(888) 206-5827 Mon-Fri, 9am-6pm EST.</p>
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-1">Can I schedule a consultation?</h4>

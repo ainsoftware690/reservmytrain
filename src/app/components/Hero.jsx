@@ -224,7 +224,7 @@ export default function TrainReservationBanner() {
                   <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-1">
                     Request A Call Back
                   </h3>
-                  <p className="text-gray-600 text-xs sm:text-sm">We'll get back to you shortly</p>
+                  <p className="text-gray-600 text-xs sm:text-sm">We&apos;ll get back to you shortly</p>
                 </div>
 
                 {/* Form Fields */}

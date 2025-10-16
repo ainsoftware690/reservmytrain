@@ -80,7 +80,7 @@ export default function ModernFooter() {
                 <div className="flex-shrink-0 w-10 h-10 bg-blue-800/60 rounded-lg flex items-center justify-center group-hover:bg-blue-700/60 transition-colors">
                   <Phone className="w-5 h-5 text-cyan-400" />
                 </div>
-                <span className="text-sm font-medium">+1(888) 508-7457</span>
+                <span className="text-sm font-medium">+1(888) 206-5827</span>
               </a>
               
               <a 

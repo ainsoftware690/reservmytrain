@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import { Zap, ShieldCheck, Lock, Headphones } from 'lucide-react';
+import { Zap, ShieldCheck, Lock, Headphones, Link } from 'lucide-react';
 
 export default function Features() {
   const features = [

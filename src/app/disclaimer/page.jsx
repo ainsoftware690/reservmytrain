@@ -162,7 +162,7 @@ export default function Disclaimer() {
                 </div>
                 <div>
                   <p className="font-semibold text-slate-900">Email Support</p>
-                  <p className="text-sm text-slate-600">support@ReservationKart.com</p>
+                  <p className="text-sm text-slate-600">support@reservationkart.com</p>
                 </div>
               </a>
               
@@ -175,7 +175,7 @@ export default function Disclaimer() {
                 </div>
                 <div>
                   <p className="font-semibold text-slate-900">Phone Support</p>
-                  <p className="text-sm text-slate-600">+1(888) 508-7457</p>
+                  <p className="text-sm text-slate-600">+1(888) 206-5827</p>
                 </div>
               </a>
             </div>

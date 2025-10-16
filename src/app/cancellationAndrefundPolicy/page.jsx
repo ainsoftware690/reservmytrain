@@ -26,7 +26,7 @@ export default function CancellationRefund() {
       id: 'compensation',
       title: 'Compensation & Claims',
       icon: CheckCircle,
-      content: `If your train is delayed or canceled, you may be entitled to compensation depending on the circumstances and the train operator&apos;s policies. ReserveMyTrain.com has a dedicated team of financial experts who will thoroughly analyze your case to determine if you qualify for compensation. We work directly with train operators to ensure you receive fair and timely compensation when eligible. The amount of compensation may vary based on the delay duration and the distance of your journey.`
+      content: `If your train is delayed or canceled, you may be entitled to compensation depending on the circumstances and the train operators policies. ReserveMyTrain.com has a dedicated team of financial experts who will thoroughly analyze your case to determine if you qualify for compensation. We work directly with train operators to ensure you receive fair and timely compensation when eligible. The amount of compensation may vary based on the delay duration and the distance of your journey.`
     },
     {
       id: 'timeline',
