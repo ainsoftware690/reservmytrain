@@ -39,7 +39,7 @@ export default function ModernFooter() {
             </Link>
             
             <p className="text-blue-200 text-base leading-relaxed max-w-md">
-              We are a reputed and esteemed Travel Company based in Amherst, New York USA for providing comfortable train & travel experiences all around the USA, Canada & Worldwide.
+              We are a reputed and esteemed Travel Company based in Hagerstown Maryland USA for providing comfortable train & travel experiences all around the USA, Canada & Worldwide.
             </p>
 
             <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full">

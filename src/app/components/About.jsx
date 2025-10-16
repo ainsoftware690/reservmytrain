@@ -35,7 +35,7 @@ export default function AboutSection() {
           <div className="space-y-6">
             <div className="prose prose-lg max-w-none">
               <p className="text-white leading-relaxed text-justify">
-                We are a reputed and esteemed Travel Company based in Amherst, New York USA for providing comfortable train & travel experiences all around the USA, Canada & Worldwide. We are rail vacation planner with affiliated partnership with multiple train consolidators. We are a third party so we do not own or operate any of the trains or rail stations but we are known to provide top quality agency services to our customers so that they can have a comfortable train travel experience.
+                We are a reputed and esteemed Travel Company based in Hagerstown Maryland USA for providing comfortable train & travel experiences all around the USA, Canada & Worldwide. We are rail vacation planner with affiliated partnership with multiple train consolidators. We are a third party so we do not own or operate any of the trains or rail stations but we are known to provide top quality agency services to our customers so that they can have a comfortable train travel experience.
               </p>
               <p className="text-white leading-relaxed text-justify">
                 We have given customers mesmerizing experiences in their train travel plans. It can be a romantic weekend, a guided city escape, or a once-in-a-lifetime holiday, we tailor-made train itineraries for everyone. We have a team of experienced travel professionals working around the clock to provide you with economical fares & customized train itineraries as per your timing & budget preference.
